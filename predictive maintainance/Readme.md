@@ -51,6 +51,7 @@ Prediction processes continuously process data and make predictions.
 The Dash web application is started and runs to display the real-time data.
 
 **steps to run code**
+
    1- Clone the Repository:
           Clone the repository containing the code from your version control system or download it as a ZIP file and extract it.
           
