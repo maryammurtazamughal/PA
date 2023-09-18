@@ -1,11 +1,12 @@
-Predictive-Maintenance
+**Predictive-Maintenance**
+
 This Python code is designed to create a real-time dashboard for visualizing sensor data predictions using machine learning models. The dashboard is built using Dash and Plotly libraries.
 
-Features include
+**Features include**
 
 Real-time prediction and visualization of sensor data. Multiple charts for different sensor types: temperature, vibration, pressure, humidity, RPM, current, and voltage. Machine learning models for each sensor type. Predicted classes are highlighted with different background colors (e.g., red, orange, white).
 
-Requirements
+**Requirements**
 
 python(for coding) 
 VS Code(IDE)
@@ -18,7 +19,8 @@ json(for accepting data that come from server)
 random(for server side:generating random values for sensors)
 time(for timstamps
 socket(built connection between client and server)
-Workflow
+
+**Workflow**
 
 The workflow for the provided code can be summarized as follows:
 
@@ -47,8 +49,8 @@ Main Execution:
 The data receiver process listens for incoming data.
 Prediction processes continuously process data and make predictions.
 The Dash web application is started and runs to display the real-time data.
-steps to run code
 
+**steps to run code**
    1- Clone the Repository:
           Clone the repository containing the code from your version control system or download it as a ZIP file and extract it.
    2- Install Dependencies:
