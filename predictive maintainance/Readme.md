@@ -53,13 +53,18 @@ The Dash web application is started and runs to display the real-time data.
 **steps to run code**
    1- Clone the Repository:
           Clone the repository containing the code from your version control system or download it as a ZIP file and extract it.
+          
    2- Install Dependencies:
           Install python and python libraries.
+          
    3- Run the Code
+   
    4- Access the Dashboard:
           Once the script is running, open a web browser.
           Access the dashboard by navigating to the URL provided in the terminal, typically something like http://127.0.0.1:8050/.
+          
    5- View Real-Time Sensor Data:
           The dashboard should display real-time sensor data and predictions in various graphs.
+          
   6- Stop the Code:
           To stop the code execution, press Ctrl+C in the terminal where the script is running.
