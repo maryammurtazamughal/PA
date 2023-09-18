@@ -32,6 +32,6 @@ sums to more intricate tasks such as locating elements and generating permutatio
 "Sensor Tasks" deals with data collection and analysis.
 All of this, coupled with our LeetCode integration, provides a rich and diverse experience for users,
 catering to various interests and skill levels.
-      
+
       
       
