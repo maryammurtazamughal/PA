@@ -22,7 +22,7 @@ Following directiories include in PA:
 * [sensor task](https://github.com/maryammurtazamughal/PA/tree/main/sensor%20task)       
 
 
-## What Awaits You in Our Project
+### What Awaits You in Our Project
 
         In our project, you'll find an array of directories, each offering unique challenges and valuable insights.
 "Task Diversity" encompasses a range of complexities, from fundamental operations like removing duplicates and calculating
