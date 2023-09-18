@@ -12,7 +12,18 @@ Following directiories include in PA:
      * [Hard](https://github.com/maryammurtazamughal/PA/tree/main/TaskDiversity/hard%20task)
           * [MEDIAN of Two Sorted Arrays](https://github.com/maryammurtazamughal/PA/tree/main/TaskDiversity/hard%20task/MEDIAN%20of%20Two%20Sorted%20Arrays)
           * [PALINDROME PAIRS](https://github.com/maryammurtazamughal/PA/tree/main/TaskDiversity/hard%20task/PALINDROME%20PAIRS)
-       
+
+* [leetcode](https://github.com/maryammurtazamughal/PA/tree/main/leetcode%20tasks)
+  
+    * [Russian dolls](https://github.com/maryammurtazamughal/PA/tree/main/leetcode%20tasks/Russian%20dolls-hard%20task%203)
+      
+    * [candy distribution](https://github.com/maryammurtazamughal/PA/tree/main/leetcode%20tasks/candy%20distribution%20-%20hard%20task%201)
+      
+    * [median](https://github.com/maryammurtazamughal/PA/tree/main/leetcode%20tasks/median-hard%20task%202)
+      
+* [predictive maintainance](https://github.com/maryammurtazamughal/PA/tree/main/predictive%20maintainance)
+  
+* [sensor task](https://github.com/maryammurtazamughal/PA/tree/main/sensor%20task)       
      
       
       
