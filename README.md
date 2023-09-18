@@ -1,4 +1,4 @@
-**###PROJECTS ACCOMPLISHMENTS**
+**PROJECTS ACCOMPLISHMENTS**
 
   Following are the directories includes in PA:
   
