@@ -20,7 +20,11 @@ Following directiories include in PA:
 * [predictive maintainance](https://github.com/maryammurtazamughal/PA/tree/main/predictive%20maintainance)
   
 * [sensor task](https://github.com/maryammurtazamughal/PA/tree/main/sensor%20task)       
-     
+
+
+# What Awaits You in Our Project
+
+        In our project, you'll find an array of directories, each offering unique challenges and valuable insights. "Task Diversity" encompasses a range of complexities, from fundamental operations like removing duplicates and calculating sums to more intricate tasks such as locating elements and generating permutations. "Russian Dolls" hints at nesting data structures, while "Candy Distribution" involves optimizing resource allocation. "Median" delves into statistical measures, "Predictive Maintenance" leverages data for equipment upkeep, and "Sensor Tasks" deals with data collection and analysis. All of this, coupled with our LeetCode integration, provides a rich and diverse experience for users, catering to various interests and skill levels.
       
       
       
