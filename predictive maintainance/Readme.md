@@ -1,4 +1,5 @@
-Predictive-Maintenance
+**Predictive-Maintenance**
+
 This Python code is designed to create a real-time dashboard for visualizing sensor data predictions using machine learning models. The dashboard is built using Dash and Plotly libraries.
 
 Features include
