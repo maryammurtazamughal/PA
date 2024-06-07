@@ -1,0 +1,209 @@
+Description of code
+
+# Install Kaggle API
+!pip install -q Kaggle
+
+# Import necessary libraries
+from google.colab import files
+import os
+import pandas as pd
+import tensorflow as tf
+from tensorflow import keras
+from tensorflow.keras import layers
+import numpy as np
+import random
+import shutil
+import matplotlib.pyplot as plt
+from matplotlib.image import imread
+from keras.preprocessing.image import ImageDataGenerator
+from tensorflow.keras.metrics import categorical_accuracy
+from sklearn.model_selection import train_test_split
+import gc
+from numpy.lib.type_check import imag
+from PIL import Image
+import glob
+import plotly.offline as plt
+
+# Set up Kaggle credentials
+# Make sure you have a Kaggle API key (kaggle.json) and upload it to your Colab environment
+# You can obtain the API key from your Kaggle account settings
+# Upload the kaggle.json file to your Colab environment
+# Ensure the kaggle.json file is in the root directory
+
+# Create a directory for Kaggle
+! mkdir ~/.kaggle
+
+# Copy the Kaggle API key to the directory
+! cp kaggle.json ~/.kaggle/
+
+# Set appropriate permissions for the API key
+! chmod 600 ~/.kaggle/kaggle.json
+
+# List available Kaggle datasets
+! kaggle datasets list
+
+# Download the dataset
+!kaggle datasets download -d sovitrath/diabetic-retinopathy-224x224-gaussian-filtered
+
+# Unzip the downloaded dataset
+!unzip diabetic-retinopathy-224x224-gaussian-filtered.zip
+
+# List the files in the current directory
+!ls
+
+# Install required packages
+!pip install pandas
+!pip install imutils
+
+# Import necessary libraries
+import os
+import numpy as np
+import cv2
+from PIL import Image
+import glob
+from keras.preprocessing.image import img_to_array, load_img
+from sklearn.preprocessing import LabelBinarizer
+from imutils import paths
+from sklearn.utils import shuffle
+
+# Create lists to store data and labels
+data = []
+labels = []
+width, height = 224, 224
+
+# Get a list of image paths
+imagePaths = list(paths.list_images('/content/gaussian_filtered_images/gaussian_filtered_images'))
+
+# Iterate through image paths and load data and labels
+for imagePath in imagePaths:
+    label = imagePath.split(os.path.sep)[-2]
+    image = load_img(imagePath, target_size=(width, height))
+    image = img_to_array(image)
+    data.append(image)
+    labels.append(label)
+
+# Convert data and labels to NumPy arrays
+data = np.array(data, dtype="float32")
+labels = np.array(labels)
+
+# Perform label binarization
+lb = LabelBinarizer()
+labels = lb.fit_transform(labels)
+
+# Shuffle the data and labels
+data, labels = shuffle(data, labels)
+
+# Normalize image data
+data = data / 255.0
+
+# Split the data into train and test sets
+x_train, x_test, y_train, y_test = train_test_split(data, labels, test_size=.2)
+
+print("Train images:", x_train.shape)
+print("Test images:", x_test.shape)
+print("Train label:", y_train.shape)
+print("Test label:", y_test.shape)
+
+# Further split the train data into train and validation sets
+x_train, x_val, y_train, y_val = train_test_split(x_train, y_train, test_size=.2)
+
+print("Train images:", x_train.shape)
+print("Validation images:", x_val.shape)
+print("Train label:", y_train.shape)
+print("Validation label:", y_val.shape)
+
+# Import necessary Keras modules
+from keras.models import Model
+from keras.layers import Dense, Flatten, Conv2D, MaxPooling2D, Activation, BatchNormalization, Dropout
+from keras.models import Sequential
+from keras.callbacks import EarlyStopping
+from keras.applications.vgg16 import VGG16
+from keras import layers
+
+# Load VGG16 base model
+Vgg16 = VGG16(include_top=False, input_shape=(224, 224, 3))
+
+# Freeze the base model's layers
+Vgg16.trainable = False
+
+# Create a Sequential model
+model = Sequential()
+
+# Add VGG16 as the base model
+model.add(Vgg16)
+
+# Add dropout layer
+model.add(Dropout(0.25))
+
+# Flatten the output
+model.add(Flatten())
+
+# Add a dense layer with ReLU activation
+model.add(Dense(64, activation="relu"))
+
+# Add another dropout layer
+model.add(Dropout(0.25))
+
+# Add another dense layer with ReLU activation
+model.add(Dense(32, activation="relu"))
+
+# Add the output layer with sigmoid activation for binary classification
+model.add(Dense(5, activation="sigmoid"))
+
+# Compile the model
+model.compile(optimizer="adam", loss="binary_crossentropy", metrics=["binary_accuracy"])
+
+# Display the model summary
+model.summary()
+
+# Set up EarlyStopping callback to prevent overfitting
+callbacks = [EarlyStopping(monitor='val_binary_accuracy', patience=10, restore_best_weights=True)]
+
+# Train the model
+history = model.fit(x_train, y_train, epochs=90, batch_size=64, validation_data=(x_val, y_val), verbose=1, callbacks=callbacks)
+
+# Save model weights
+model.save_weights("model_weights.h5")
+
+# Define a function to plot training curves
+def plot_curves(history):
+    loss = history.history["loss"]
+    val_loss = history.history["val_loss"]
+    accuracy = history.history["binary_accuracy"]
+    val_accuracy = history.history["val_binary_accuracy"]
+    epochs = range(len(history.history["loss"]))
+    
+    # Plot loss
+    plt.plot(epochs, loss, label="training_loss")
+    plt.plot(epochs, val_loss, label="val_loss")
+    plt.title("Loss")
+    plt.xlabel("Epochs")
+    plt.legend()
+    
+    # Plot accuracy
+    plt.figure()
+    plt.plot(epochs, accuracy, label="training_accuracy")
+    plt.plot(epochs, val_accuracy, label="val_accuracy")
+    plt.title("Accuracy")
+    plt.xlabel("Epochs")
+    plt.legend()
+
+# Plot training curves
+plot_curves(history)
+
+# Make predictions on test data and display an example
+pred = model.predict(x_test)
+pred = np.argmax(pred, axis=1)
+index = 5
+
+# Define class labels
+predictions = ["Mild", "Moderate", "No_DR", "Proliferate_DR", "Severe"]
+
+# Display an example image and its true and predicted labels
+img = x_test[index]
+RGBImg = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+RGBImg = cv2.resize(RGBImg, (224, 224))
+plt.imshow(RGBImg)
+print(y_test[index])  # True labels
+print(f"Prediction: {predictions[pred[index]]}")  # Predicted label
+
