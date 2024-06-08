@@ -4,11 +4,11 @@
        This project utilized convolutional neural networks to classify retinal image into 5 categories: Mild, Moderate, NO_Dr, Poliferate_DR, Severe
 ## Intsall neccessary libraries:
   * Tensorflow
-  keras
-  pandas
-  numpy
-  matplotlib
-  transfer learning vgg16 model
+  * keras
+  * pandas
+  * numpy
+  *matplotlib
+  *transfer learning vgg16 model
 ## setup Kaggle API:
   obtain a kaggle API key from your kaggle account
 ## Model Training:
