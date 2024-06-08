@@ -7,14 +7,14 @@
   * keras
   * pandas
   * numpy
-  *matplotlib
-  *transfer learning vgg16 model
+  * matplotlib
+  * transfer learning vgg16 model
 ## setup Kaggle API:
   obtain a kaggle API key from your kaggle account
 ## Model Training:
-   load and preprocess data
-   Define and compile the model
-   Train the model
+   * load and preprocess data
+   * Define and compile the model
+   * Train the model
 ## Results
    After training the model performance can be evaluated on the test set. The training curves for loss and accuracy can be plotted to visualize the model's learning process.
 
