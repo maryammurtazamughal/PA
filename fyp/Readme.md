@@ -3,7 +3,7 @@
        Diabetic Retinopathy is a cndition in  which retina is demage due to diabetes,leading to loss of vision and potentially blindness if not diagnosed and treated early,
        This project utilized convolutional neural networks to classify retinal image into 5 categories: Mild, Moderate, NO_Dr, Poliferate_DR, Severe
 ## Intsall neccessary libraries:
-  Tensorflow
+  * Tensorflow
   keras
   pandas
   numpy
